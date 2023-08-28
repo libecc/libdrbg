@@ -1,0 +1,26 @@
+option('with-hash-drbg', type: 'boolean', value: true)
+option('with-hmac-drbg', type: 'boolean', value: true)
+option('with-ctr-drbg', type: 'boolean', value: true)
+option('with-bc-tdea', type: 'boolean', value: true)
+option('with-bc-aes', type: 'boolean', value: true)
+
+option('small-footprint', type: 'boolean', value: false)
+
+option('strict-nist-hashes', type: 'boolean', value: true)
+
+option('with-hashes', type: 'array', choices: [
+    'bash224', 'bash256', 'bash384', 'bash512',
+    'belt',
+    'gostr34-11-94',
+    'md2', 'md4', 'md5',
+    'mdc2',
+    'ripemd160',
+    'sha0', 'sha1', 'sha2', 'sha3',
+    'sha3-224', 'sha3-256', 'sha3-384', 'sha3-512',
+    'sha224', 'sha256', 'sha384', 'sha512', 'sha512-224', 'sha512-256',
+    'shake256',
+    'sm3',
+    'streebog256', 'streebog512'])
+
+option('with_test_entropy_source', type: 'boolean', value: false)
+option('with_test', type: 'boolean', value: false)

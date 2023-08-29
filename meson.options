@@ -1,26 +1,30 @@
-option('with-hash-drbg', type: 'boolean', value: true)
-option('with-hmac-drbg', type: 'boolean', value: true)
-option('with-ctr-drbg', type: 'boolean', value: true)
-option('with-bc-tdea', type: 'boolean', value: true)
-option('with-bc-aes', type: 'boolean', value: true)
+option('with-hash-drbg', type: 'boolean', value: true, description: 'enables DRBG based on hash functions')
+option('with-hmac-drbg', type: 'boolean', value: true, description: 'enables DRBG based on HMA')
+option('with-ctr-drbg', type: 'boolean', value: true, description: 'enables DRBG based on block ciphers in counter mode')
+option('with-bc-tdea', type: 'boolean', value: true, description: 'enables TDEA as block cipher algorithm for CTR DRBG')
+option('with-bc-aes', type: 'boolean', value: true, description: 'enables AES as block cipher algorithm for CTR DRBG')
 
-option('small-footprint', type: 'boolean', value: false)
+option('small-footprint', type: 'boolean', value: false, description: 'use small footprint implementations ' +
+    'this mostly concerns AES where table based or compact SBOX variants are selected')
 
-option('strict-nist-hashes', type: 'boolean', value: true)
+option('strict-nist-hashes', type: 'boolean', value: true, description: 'enables NIST SP800 90A only hashes')
 
-option('with-hashes', type: 'array', choices: [
-    'bash224', 'bash256', 'bash384', 'bash512',
-    'belt',
-    'gostr34-11-94',
-    'md2', 'md4', 'md5',
-    'mdc2',
-    'ripemd160',
-    'sha0', 'sha1', 'sha2', 'sha3',
-    'sha3-224', 'sha3-256', 'sha3-384', 'sha3-512',
-    'sha224', 'sha256', 'sha384', 'sha512', 'sha512-224', 'sha512-256',
-    'shake256',
-    'sm3',
-    'streebog256', 'streebog512'])
+option('with-hashes', type: 'array',
+    choices: [
+        'bash224', 'bash256', 'bash384', 'bash512',
+        'belt',
+        'gostr34-11-94',
+        'md2', 'md4', 'md5',
+        'mdc2',
+        'ripemd160',
+        'sha0', 'sha1', 'sha2', 'sha3',
+        'sha3-224', 'sha3-256', 'sha3-384', 'sha3-512',
+        'sha224', 'sha256', 'sha384', 'sha512', 'sha512-224', 'sha512-256',
+        'shake256',
+        'sm3',
+        'streebog256', 'streebog512'],
+    deprecated: [ 'md2', 'md4', 'md5', 'mdc2', 'sha0', 'sha1', 'gostr34-11-94' ],
+    description: 'List of user defined hash algorithm')
 
-option('with_test_entropy_source', type: 'boolean', value: false)
-option('with_test', type: 'boolean', value: false)
+option('with_test_entropy_source', type: 'boolean', value: false, description: 'Use test Entropy source (Unix/Windows only)')
+option('with_test', type: 'boolean', value: false, description: 'Build self test binary')

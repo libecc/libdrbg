@@ -11,7 +11,7 @@
 #ifndef __DRBG_COMMON_H__
 #define __DRBG_COMMON_H__
 
-#include "utils.h"
+#include "libhash/utils.h"
 #include "helpers.h"
 
 /*** Sanity check ***/
@@ -53,7 +53,7 @@ typedef enum {
 /*********************************************/
 /********** Hash-DRBG specific data ***********/
 /*********************************************/
-#include "hash.h"
+#include "libhash/hash.h"
 /* Hash-DRBG errors */
 #define HASH_DRBG_OK		DRBG_OK
 #define HASH_DRBG_NON_INIT	DRBG_NON_INIT
@@ -105,7 +105,7 @@ typedef struct {
 /*********************************************/
 /********** HMAC-DRBG specific data ***********/
 /*********************************************/
-#include "hmac.h"
+#include "libhash/hmac.h"
 /* HMAC-DRBG errors */
 #define HMAC_DRBG_OK		DRBG_OK
 #define HMAC_DRBG_NON_INIT	DRBG_NON_INIT
@@ -150,9 +150,9 @@ typedef struct {
 /********** CTR-DRBG specific data ***********/
 /*********************************************/
 /* TDEA algorithm */
-#include "tdes.h"
+#include "libhash/tdes.h"
 /* AES algorithm */
-#include "aes.h"
+#include "aes/aes.h"
 
 /* CTR-DRBG errors */
 #define CTR_DRBG_OK		DRBG_OK
